@@ -1,0 +1,31 @@
+.cart_card {
+  display: grid;
+  width: 100%;
+  grid-template-areas:
+    "img name remove"
+    "img price .";
+  grid-template-columns: minmax(50px, 140px) auto 50px;
+  box-shadow: rgba(6, 5, 50, 0.15) 0px 4px 11px 2px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.img {
+  max-width: 100%;
+  width: 120px;
+  grid-area: img;
+}
+.remove {
+  grid-area: remove;
+  justify-self: flex-end;
+  align-self: flex-start;
+}
+.name {
+  grid-area: name;
+  font-size: 1.1rem;
+}
+.price {
+  grid-area: price;
+  font-size: 1.2rem;
+}

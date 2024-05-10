@@ -1,0 +1,52 @@
+.header {
+  padding: 20px 0;
+}
+
+.logo {
+  object-fit: cover;
+}
+
+.logo_title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.cart_btn {
+  padding: 10px;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.top_nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top_nav > * {
+  display: flex;
+  align-items: center;
+}
+
+.nav_list {
+  display: flex;
+  gap: 0 5px;
+  overflow-x: auto;
+}
+
+.nav_list_item {
+  padding: 10px 0;
+}
+
+.row {
+  font-weight: 600;
+}
+
+.row:hover {
+  color: hsla(160, 100%, 37%, 1);
+}
+
+.bottom_btn {
+  display: flex;
+}
