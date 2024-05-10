@@ -6,13 +6,11 @@ export const Home: FC = () => {
   return (
     <>
       <OftenOrders />
-      <main>
-        <div className="container">
-          {navLinks.map((it) => (
-            <ProductList key={it.id} htmlId={it.eng} title={it.name} />
-          ))}
-        </div>
-      </main>
+      <div className="container">
+        {navLinks.map((it) => (
+          <ProductList key={it.id} htmlId={it.eng} title={it.name} />
+        ))}
+      </div>
     </>
   );
 };
