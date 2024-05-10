@@ -1,15 +1,15 @@
 import { FC } from "react";
 import styles from "./style.module.css";
-import { useBoundStore } from "../../store";
+import { useCartStore } from "../../store/slices/cart";
 interface IProps {
-  id?: number;
+  id: number;
   name: string;
   desc: string;
   img: string;
   price: number;
 }
 export const ProductCard: FC<IProps> = ({ id, name, desc, img, price }) => {
-  const addToCard = useBoundStore((state) => state.add);
+  const addToCard = useCartStore((state) => state.add);
   const item = {
     id,
     name,

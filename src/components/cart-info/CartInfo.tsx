@@ -1,11 +1,11 @@
 import { FC } from "react";
 import styles from "./style.module.css";
-import { useBoundStore } from "../../store";
+import { useCartStore } from "../../store/slices/cart";
 
 export const CartInfo: FC = () => {
-  const cartQty = useBoundStore((state) => state.quantity);
-  const removeAll = useBoundStore((state) => state.removeAll);
-  const items: [] = useBoundStore((state) => state.items);
+  const cartQty = useCartStore((state) => state.quantity);
+  const removeAll = useCartStore((state) => state.removeAll);
+  const items = useCartStore((state) => state.items);
 
   //подсчет полной суммы
   const fullSum = items.reduce((acc, curr) => acc + curr.price, 0);

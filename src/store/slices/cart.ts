@@ -1,4 +1,6 @@
-export interface ICartProps {
+import { create } from "zustand";
+
+export interface IProductProps {
   id: number;
   name: string;
   desc: string;
@@ -7,11 +9,15 @@ export interface ICartProps {
 }
 
 export type CartState = {
-  items: ICartProps[];
+  items: IProductProps[];
   quantity: number;
+  add: (payload: IProductProps) => void;
+  remove: (payload: number) => void;
+  removeAll: () => void;
+  checkAllQty: () => void;
 };
 
-export const cart = (set) => ({
+export const useCartStore = create<CartState>()((set) => ({
   items: [],
   quantity: 0,
   add: (payload) =>
@@ -50,13 +56,13 @@ export const cart = (set) => ({
   remove: (payload) => {
     console.log("remove", payload);
     set((state) => ({
-      items: state.items.filter((it: ICartProps) => it.id !== payload),
+      items: state.items.filter((it) => it.id !== payload),
       // quantity: state.items.length,
     }));
   },
 
   removeAll: () =>
-    set((state) => ({
+    set(() => ({
       items: [],
       quantity: 0,
     })),
@@ -65,4 +71,4 @@ export const cart = (set) => ({
     set((state) => ({
       quantity: state.items.length,
     })),
-});
+}));

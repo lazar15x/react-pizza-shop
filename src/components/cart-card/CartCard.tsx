@@ -1,7 +1,8 @@
 import { FC } from "react";
 import { Trash2 } from "lucide-react";
 import styles from "./style.module.css";
-import { useBoundStore } from "../../store";
+import { useCartStore } from "../../store/slices/cart";
+
 interface IProps {
   id: number;
   name: string;
@@ -10,8 +11,8 @@ interface IProps {
   price: number;
 }
 
-export const CartCard: FC<IProps> = ({ id, name, desc, img, price }) => {
-  const removeFromCart = useBoundStore((state) => state.remove);
+export const CartCard: FC<IProps> = ({ id, name, img, price }) => {
+  const removeFromCart = useCartStore((state) => state.remove);
 
   return (
     <>
