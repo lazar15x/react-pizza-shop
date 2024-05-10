@@ -6,6 +6,7 @@ import { CartBlock } from "..";
 import { createPortal } from "react-dom";
 import { navLinks } from "./const";
 import { useScrollIntoView } from "../../hooks/useScrollIntoView";
+import logo from "/public/static/logo.png";
 
 export const Header: FC = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
@@ -22,7 +23,7 @@ export const Header: FC = () => {
                 <img
                   alt="Pizza time logo"
                   className={styles.logo}
-                  src="/src/assets/logo.png"
+                  src={logo}
                   width="70"
                   height="70"
                 />
