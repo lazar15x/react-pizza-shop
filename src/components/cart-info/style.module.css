@@ -1,18 +1,17 @@
 .cart_info {
   margin-top: auto;
   margin-bottom: 20px;
-  /* box-shadow: rgba(6, 5, 50, 0.15) 0px 4px 22px -6px; */
   padding: 10px;
   border-radius: 8px;
   box-shadow: rgba(6, 5, 50, 0.15) 0px 4px 11px 2px;
 }
 
 .title {
-  font-size: 1.1rem;
+  font-size: 1.3em;
 }
 
 .value {
-  font-size: 1.1rem;
+  font-size: 1.3em;
   font-weight: 600;
 }
 
@@ -22,21 +21,27 @@
   margin-top: 20px;
 }
 
-.btn_buy {
+.btn {
   width: 100%;
   max-width: 200px;
-  background-color: rgb(255 189 69);
-  padding: 5px 20px;
+  padding: 5px 10px;
   border-radius: 4px;
-  font-size: 1.2rem;
+  font-size: 1.2em;
+  min-height: 50px;
+}
+
+.btn_buy {
+  background-color: rgb(255 189 69);
+}
+
+.btn_buy:hover {
+  background-color: rgb(251, 194, 89);
 }
 
 .btn_outline {
-  width: 100%;
-  max-width: 200px;
-  background-color: transparent;
-  padding: 5px 20px;
-  border-radius: 4px;
-  font-size: 1.2rem;
   border: 1px solid grey;
+}
+
+.btn_outline:hover {
+  border: 1px solid rgb(156, 156, 156);
 }

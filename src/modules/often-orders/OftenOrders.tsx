@@ -1,6 +1,6 @@
 import { FC } from "react";
+import oftenOrders from "@/assets/oftenOrders.json";
 import styles from "./style.module.css";
-import oftenOrders from "../../assets/oftenOrders.json";
 
 export const OftenOrders: FC = () => {
   return (

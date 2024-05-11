@@ -1,15 +1,17 @@
 import { FC, useState } from "react";
+import { createPortal } from "react-dom";
 import { ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
-import styles from "./style.module.css";
 import { CartBlock } from "..";
-import { createPortal } from "react-dom";
+import { useScrollIntoView } from "@/shared/hooks/useScrollIntoView";
 import { navLinks } from "./const";
-import { useScrollIntoView } from "../../hooks/useScrollIntoView";
 import logo from "/public/static/logo.png";
+import styles from "./style.module.css";
+import { useCartStore } from "@/store/slices/cart";
 
 export const Header: FC = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
+  const qty = useCartStore((state) => state.quantity);
   console.log("LOG", document.getElementById("portals"));
   useScrollIntoView();
 
@@ -35,6 +37,11 @@ export const Header: FC = () => {
                   className={styles.cart_btn}
                 >
                   <ShoppingCart />
+                  {qty === 0 ? (
+                    ""
+                  ) : (
+                    <div className={styles.cart_badge}>{qty}</div>
+                  )}
                 </button>
               </div>
             </div>

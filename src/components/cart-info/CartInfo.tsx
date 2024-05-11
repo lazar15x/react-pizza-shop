@@ -1,6 +1,6 @@
 import { FC } from "react";
 import styles from "./style.module.css";
-import { useCartStore } from "../../store/slices/cart";
+import { useCartStore } from "@/store/slices/cart";
 
 export const CartInfo: FC = () => {
   const cartQty = useCartStore((state) => state.quantity);
@@ -21,8 +21,11 @@ export const CartInfo: FC = () => {
         <span className={styles.value}>{cartQty}</span>
       </div>
       <div className={styles.bottom_btn}>
-        <button className={styles.btn_buy}>Заказать</button>
-        <button onClick={removeAll} className={styles.btn_outline}>
+        <button className={`${styles.btn} ${styles.btn_buy}`}>Заказать</button>
+        <button
+          onClick={removeAll}
+          className={`${styles.btn} ${styles.btn_outline}`}
+        >
           Очистить корзину
         </button>
       </div>

@@ -1,6 +1,6 @@
 import { FC } from "react";
-import styles from "./style.module.css";
 import { Github } from "lucide-react";
+import styles from "./style.module.css";
 export const Footer: FC = () => {
   return (
     <footer>

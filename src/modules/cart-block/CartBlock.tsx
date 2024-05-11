@@ -1,14 +1,15 @@
 import { FC, useEffect } from "react";
-import { CartCard, CartEmpty, CartInfo } from "../../components";
 import { X } from "lucide-react";
+import { CartCard, CartEmpty, CartInfo } from "@/components";
+import { useOutsideClick } from "@/shared/hooks/useOutsideClick";
+import { useCartStore } from "@/store/slices/cart";
 import styles from "./style.module.css";
-import { useOutsideClick } from "../../hooks/useOutsideClick";
-import { useCartStore } from "../../store/slices/cart";
 
 interface IProps {
-  isOpen?: boolean;
-  setIsOpen?: any;
+  isOpen: boolean;
+  setIsOpen: any;
 }
+
 export const CartBlock: FC<IProps> = ({ isOpen, setIsOpen }) => {
   const cartQty = useCartStore((state) => state.quantity);
   const items = useCartStore((state) => state.items);

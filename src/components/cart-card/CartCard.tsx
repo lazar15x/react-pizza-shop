@@ -1,17 +1,10 @@
 import { FC } from "react";
 import { Trash2 } from "lucide-react";
+import { useCartStore } from "@/store/slices/cart";
+import { IProduct } from "@/shared/types/items.type";
 import styles from "./style.module.css";
-import { useCartStore } from "../../store/slices/cart";
 
-interface IProps {
-  id: number;
-  name: string;
-  desc: string;
-  img: string;
-  price: number;
-}
-
-export const CartCard: FC<IProps> = ({ id, name, img, price }) => {
+export const CartCard: FC<IProduct> = ({ id, name, img, price }) => {
   const removeFromCart = useCartStore((state) => state.remove);
 
   return (
@@ -23,7 +16,7 @@ export const CartCard: FC<IProps> = ({ id, name, img, price }) => {
         </button>
         <h2 className={styles.name}>{name}</h2>
         <div className={styles.price}>
-          Цена:
+          <span>Цена: </span>
           <span>{price}₽</span>
         </div>
       </div>

@@ -4,7 +4,7 @@
   grid-template-areas:
     "img name remove"
     "img price .";
-  grid-template-columns: minmax(50px, 140px) auto 50px;
+  grid-template-columns: minmax(50px, 120px) auto 30px;
   box-shadow: rgba(6, 5, 50, 0.15) 0px 4px 11px 2px;
   padding: 10px;
   border-radius: 8px;
@@ -13,8 +13,9 @@
 
 .img {
   max-width: 100%;
-  width: 120px;
+  width: 110px;
   grid-area: img;
+  align-self: center;
 }
 .remove {
   grid-area: remove;
@@ -23,9 +24,9 @@
 }
 .name {
   grid-area: name;
-  font-size: 1.1rem;
+  font-size: 1.2em;
 }
 .price {
   grid-area: price;
-  font-size: 1.2rem;
+  font-size: 1.3em;
 }

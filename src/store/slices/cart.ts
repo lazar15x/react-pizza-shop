@@ -1,17 +1,10 @@
+import { IProduct } from "@/shared/types/items.type";
 import { create } from "zustand";
 
-export interface IProductProps {
-  id: number;
-  name: string;
-  desc: string;
-  img: string;
-  price: number;
-}
-
 export type CartState = {
-  items: IProductProps[];
+  items: IProduct[];
   quantity: number;
-  add: (payload: IProductProps) => void;
+  add: (payload: IProduct) => void;
   remove: (payload: number) => void;
   removeAll: () => void;
   checkAllQty: () => void;

@@ -16,6 +16,7 @@
   background-color: transparent;
   border: 0;
   cursor: pointer;
+  position: relative;
 }
 
 .top_nav {
@@ -41,12 +42,22 @@
 
 .row {
   font-weight: 600;
-}
-
-.row:hover {
-  color: hsla(160, 100%, 37%, 1);
+  font-size: 1.1em;
 }
 
 .bottom_btn {
   display: flex;
+}
+
+.cart_badge {
+  background-color: orange;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  top: 0;
+  right: 0;
+  padding: 2px;
 }
