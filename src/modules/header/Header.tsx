@@ -1,18 +1,18 @@
-import { FC, useState } from "react";
-import { createPortal } from "react-dom";
-import { ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom";
-import { CartBlock } from "..";
-import { useScrollIntoView } from "@/shared/hooks/useScrollIntoView";
-import { navLinks } from "./const";
-import logo from "/public/static/logo.png";
-import styles from "./style.module.css";
-import { useCartStore } from "@/store/slices/cart";
+import { useState } from 'react';
+import { createPortal } from 'react-dom';
+import { ShoppingCart } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { CartBlock } from '..';
+import { useScrollIntoView } from '@/shared/hooks/useScrollIntoView';
+import { navLinks } from './const';
+import logo from '/public/static/logo.png';
+import styles from './style.module.css';
+import { useCartStore } from '@/store/slices/cart';
 
-export const Header: FC = () => {
+export const Header = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
-  const qty = useCartStore((state) => state.quantity);
-  console.log("LOG", document.getElementById("portals"));
+  const qty = useCartStore(state => state.quantity);
+  console.log('LOG', document.getElementById('portals'));
   useScrollIntoView();
 
   return (
@@ -34,11 +34,10 @@ export const Header: FC = () => {
               <div className={styles.cart}>
                 <button
                   onClick={() => setIsOpenCart(true)}
-                  className={styles.cart_btn}
-                >
+                  className={styles.cart_btn}>
                   <ShoppingCart />
                   {qty === 0 ? (
-                    ""
+                    ''
                   ) : (
                     <div className={styles.cart_badge}>{qty}</div>
                   )}
@@ -46,7 +45,7 @@ export const Header: FC = () => {
               </div>
             </div>
             <ul className={styles.nav_list}>
-              {navLinks.map((link) => (
+              {navLinks.map(link => (
                 <li key={link.id} className={styles.nav_list_item}>
                   <a className={styles.row} href={`#${link.eng}`}>
                     {link.name}
@@ -60,7 +59,7 @@ export const Header: FC = () => {
       {createPortal(
         <CartBlock isOpen={isOpenCart} setIsOpen={setIsOpenCart} />,
         /*@ts-ignore*/
-        document.getElementById("portals")
+        document.getElementById('portals'),
       )}
     </>
   );

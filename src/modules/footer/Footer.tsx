@@ -1,15 +1,14 @@
-import { FC } from "react";
-import { Github } from "lucide-react";
-import styles from "./style.module.css";
-export const Footer: FC = () => {
+import { Github } from 'lucide-react';
+import styles from './style.module.css';
+
+export const Footer = () => {
   return (
     <footer>
-      <div className={styles.container}>
+      <div>
         <a
           className={styles.link}
           href="https://github.com/lazar15x"
-          target="_blank"
-        >
+          target="_blank">
           Ссылка на гитхаб автора
           <Github />
         </a>

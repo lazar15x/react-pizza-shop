@@ -1,9 +1,8 @@
-import { Outlet, createBrowserRouter } from "react-router-dom";
-import { Footer, Header } from "./modules";
-import { About, Home } from "./pages";
-import { FC } from "react";
+import { Outlet, createBrowserRouter } from 'react-router-dom';
+import { Footer, Header } from './modules';
+import { About, Home } from './pages';
 
-const Layout: FC = () => {
+const Layout = () => {
   return (
     <>
       <Header />
@@ -17,15 +16,15 @@ const Layout: FC = () => {
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <Home />,
       },
       {
-        path: "/about",
+        path: '/about',
         element: <About />,
       },
     ],

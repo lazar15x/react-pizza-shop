@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { useCartStore } from "@/store/slices/cart";
-import { IProduct } from "@/shared/types/items.type";
-import styles from "./style.module.css";
+import { FC } from 'react';
+import { useCartStore } from '@/store/slices/cart';
+import { IProduct } from '@/shared/types/items.type';
+import styles from './style.module.css';
 
 export const ProductCard: FC<IProduct> = ({
   id,
@@ -11,9 +11,9 @@ export const ProductCard: FC<IProduct> = ({
   price,
   category,
 }) => {
-  const addToCard = useCartStore((state) => state.add);
-  const items = useCartStore((state) => state.items);
-  const index = items.findIndex((it) => it.id === id);
+  const addToCard = useCartStore(state => state.add);
+  const items = useCartStore(state => state.items);
+  const index = items.findIndex(it => it.id === id);
   const item = {
     id,
     name,
@@ -23,21 +23,19 @@ export const ProductCard: FC<IProduct> = ({
     category,
   };
 
-  function handleAdd() {
-    addToCard(item);
-  }
+  const handleAdd = () => addToCard(item);
 
   return (
     <article className={styles.card}>
       <div className={styles.card_img}>
-        <img src={img} alt="" />
+        <img src={img} alt={desc} />
       </div>
       <div className={styles.card_name}>{name}</div>
       <div className={styles.desc}>{desc}</div>
       <div className={styles.bottom}>
         <div className={styles.price}>{price} ₽</div>
         <button onClick={() => handleAdd()} className={styles.buy}>
-          {index === -1 ? "Выбрать" : "Добавлено"}
+          {index === -1 ? 'Выбрать' : 'Добавлено'}
         </button>
       </div>
     </article>

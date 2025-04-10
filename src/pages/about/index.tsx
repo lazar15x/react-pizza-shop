@@ -1,13 +1,14 @@
-import { CSSProperties, FC } from "react";
+import { CSSProperties } from 'react';
 
 const styles: CSSProperties = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  fontSize: "1.2rem",
-  textAlign: "center",
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontSize: '1.2rem',
+  textAlign: 'center',
 };
-export const About: FC = () => {
+
+export const About = () => {
   return (
     <div>
       <div style={styles} className="container">

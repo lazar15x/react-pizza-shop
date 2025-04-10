@@ -1,38 +1,22 @@
-import { IProduct } from "@/shared/types/items.type";
-import { create } from "zustand";
+import { IProduct } from '@/shared/types/items.type';
+import { create } from 'zustand';
 
-export type CartState = {
+export interface CartState {
   items: IProduct[];
   quantity: number;
   add: (payload: IProduct) => void;
   remove: (payload: number) => void;
   removeAll: () => void;
   checkAllQty: () => void;
-};
+}
 
-export const useCartStore = create<CartState>()((set) => ({
+export const useCartStore = create<CartState>()(set => ({
   items: [],
   quantity: 0,
-  add: (payload) =>
-    set((state) => {
-      const index = state.items.findIndex((it) => it.id === payload.id);
-      console.log("index", index);
-
-      // if (index !== -1) {
-      //   const newItem = {
-      //     ...state.items[index],
-      //     qty: state.items[index].qty + 1,
-      //   };
-      //   return {
-      //     items: [...state.items, newItem],
-      //     quantity: state.items.length + 1,
-      //   };
-      // } else {
-      //   return {
-      //     items: [...state.items, { ...payload, qty: 1 }],
-      //     quantity: state.items.length + 1,
-      //   };
-      // }
+  add: payload =>
+    set(state => {
+      const index = state.items.findIndex(it => it.id === payload.id);
+      console.log('index', index);
 
       if (index !== -1) {
         return {
@@ -41,16 +25,14 @@ export const useCartStore = create<CartState>()((set) => ({
       } else {
         return {
           items: [...state.items, payload],
-          // quantity: state.items.length,
         };
       }
     }),
 
-  remove: (payload) => {
-    console.log("remove", payload);
-    set((state) => ({
-      items: state.items.filter((it) => it.id !== payload),
-      // quantity: state.items.length,
+  remove: payload => {
+    console.log('remove', payload);
+    set(state => ({
+      items: state.items.filter(it => it.id !== payload),
     }));
   },
 
@@ -61,7 +43,7 @@ export const useCartStore = create<CartState>()((set) => ({
     })),
 
   checkAllQty: () =>
-    set((state) => ({
+    set(state => ({
       quantity: state.items.length,
     })),
 }));

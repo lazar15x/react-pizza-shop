@@ -4,7 +4,6 @@
 
 .product_list_item {
   display: grid;
-  /* grid-template-columns: repeat(2, 1fr); */
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
 }
@@ -13,12 +12,6 @@
   font-size: 3em;
   font-weight: 600;
 }
-
-/* @media (min-width: 576px) {
-    .product_list {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  } */
 
 @media (min-width: 768px) {
   .product_list_item {
